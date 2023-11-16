@@ -1,0 +1,70 @@
+swagger: '2.0'
+info:
+  description: IBM SCC API ドキュメント
+  version: 0.0.1
+  title: IBM SCC API APIs
+basePath: /api
+tags:
+  - name: scc
+    description: IBM SCC API
+schemes:
+  - http
+  - https
+paths:
+  /scc/reports/{instance_id}:
+    get:
+      tags:
+        - scc
+      summary: Get reports
+      description: Get reports
+      produces:
+        - application/json
+      consumes:
+        - multipart/form-data
+      parameters:
+#        - name: apikey
+#          in: formData
+#          type: string
+#          description: IAM API キー
+#          required: true
+        - name: instance_id
+          in: path
+          type: string
+          description: インスタンスID
+          required: true
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
+  /scc/report/{instance_id}/{report_id}:
+    get:
+      tags:
+        - scc
+      summary: Get report summary
+      description: Get report summary
+      produces:
+        - application/json
+      consumes:
+        - multipart/form-data
+      parameters:
+#        - name: apikey
+#          in: formData
+#          type: string
+#          description: IAM API キー
+#          required: true
+        - name: instance_id
+          in: path
+          type: string
+          description: インスタンスID
+          required: true
+        - name: report_id
+          in: path
+          type: string
+          description: レポートID
+          required: true
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
